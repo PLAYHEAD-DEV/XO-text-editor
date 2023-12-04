@@ -133,19 +133,22 @@ class _TextEditorState extends State<TextEditor> {
         color: widget.backgroundColor,
         child: Column(
           children: [
-            Row(
-              children: [
-                Expanded(child: Container()),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: GestureDetector(
-                      onTap: _editCompleteHandler,
-                      child: _doneButton,
+            SizedBox(
+              height: 56,
+              child: Row(
+                children: [
+                  Expanded(child: Container()),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: GestureDetector(
+                        onTap: _editCompleteHandler,
+                        child: _doneButton,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             SizedBox(
               height: 50,

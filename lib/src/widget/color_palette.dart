@@ -19,22 +19,6 @@ class _ColorPaletteState extends State<ColorPalette> {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            Container(
-              width: 40,
-              height: 40,
-              margin: EdgeInsets.only(right: 7),
-              decoration: BoxDecoration(
-                color: textStyleModel.textStyle?.color,
-                border: Border.all(color: Colors.white, width: 1.5),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                child: Icon(
-                  Icons.colorize,
-                  color: Colors.white,
-                ),
-              ),
-            ),
             ...widget.colors.map((color) => _ColorPicker(color)).toList(),
           ],
         ),
@@ -55,9 +39,9 @@ class _ColorPicker extends StatelessWidget {
     return GestureDetector(
       onTap: () => textStyleModel.editTextColor(color),
       child: Container(
-        width: 40,
-        height: 40,
-        margin: EdgeInsets.only(right: 7),
+        width: 24,
+        height: 24,
+        margin: const EdgeInsets.only(right: 24, bottom: 12),
         decoration: BoxDecoration(
           color: color,
           border: Border.all(color: Colors.white, width: 1.5),
