@@ -137,30 +137,6 @@ class _TextEditorState extends State<TextEditor> {
               children: [
                 Expanded(child: Container()),
                 Expanded(
-                  flex: 3,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextAlignment(
-                        left: widget.decoration?.alignment?.left,
-                        center: widget.decoration?.alignment?.center,
-                        right: widget.decoration?.alignment?.right,
-                      ),
-                      SizedBox(width: 20),
-                      FontOptionSwitch(
-                        fontFamilySwitch: widget.decoration?.fontFamily,
-                        colorPaletteSwitch: widget.decoration?.colorPalette,
-                      ),
-                      SizedBox(width: 20),
-                      TextBackgroundColor(
-                        enableWidget: widget.decoration?.textBackground?.enable,
-                        disableWidget:
-                            widget.decoration?.textBackground?.disable,
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
@@ -170,6 +146,31 @@ class _TextEditorState extends State<TextEditor> {
                   ),
                 ),
               ],
+            ),
+            SizedBox(
+              height: 50,
+              child: Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextAlignment(
+                      left: widget.decoration?.alignment?.left,
+                      center: widget.decoration?.alignment?.center,
+                      right: widget.decoration?.alignment?.right,
+                    ),
+                    SizedBox(width: 20),
+                    FontOptionSwitch(
+                      fontFamilySwitch: widget.decoration?.fontFamily,
+                      colorPaletteSwitch: widget.decoration?.colorPalette,
+                    ),
+                    SizedBox(width: 20),
+                    TextBackgroundColor(
+                      enableWidget: widget.decoration?.textBackground?.enable,
+                      disableWidget: widget.decoration?.textBackground?.disable,
+                    ),
+                  ],
+                ),
+              ),
             ),
             Expanded(
               child: Row(
