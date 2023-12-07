@@ -129,7 +129,7 @@ class _TextEditorState extends State<TextEditor> {
       textStyleModel: _textStyleModel,
       fontOptionModel: _fontOptionModel,
       child: Container(
-        padding: EdgeInsets.only(right: 10, left: 10),
+        padding: const EdgeInsets.only(right: 10, left: 10),
         color: widget.backgroundColor,
         child: Column(
           children: [
@@ -152,51 +152,43 @@ class _TextEditorState extends State<TextEditor> {
             ),
             SizedBox(
               height: 50,
-              child: Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextAlignment(
-                      left: widget.decoration?.alignment?.left,
-                      center: widget.decoration?.alignment?.center,
-                      right: widget.decoration?.alignment?.right,
-                    ),
-                    SizedBox(width: 20),
-                    FontOptionSwitch(
-                      fontFamilySwitch: widget.decoration?.fontFamily,
-                      colorPaletteSwitch: widget.decoration?.colorPalette,
-                    ),
-                    SizedBox(width: 20),
-                    TextBackgroundColor(
-                      enableWidget: widget.decoration?.textBackground?.enable,
-                      disableWidget: widget.decoration?.textBackground?.disable,
-                    ),
-                  ],
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextAlignment(
+                    left: widget.decoration?.alignment?.left,
+                    center: widget.decoration?.alignment?.center,
+                    right: widget.decoration?.alignment?.right,
+                  ),
+                  SizedBox(width: 20),
+                  FontOptionSwitch(
+                    fontFamilySwitch: widget.decoration?.fontFamily,
+                    colorPaletteSwitch: widget.decoration?.colorPalette,
+                  ),
+                  SizedBox(width: 20),
+                  TextBackgroundColor(
+                    enableWidget: widget.decoration?.textBackground?.enable,
+                    disableWidget: widget.decoration?.textBackground?.disable,
+                  ),
+                ],
               ),
             ),
             Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      child: Center(
-                        child: TextField(
-                          controller: TextEditingController()
-                            ..text = _textStyleModel.text,
-                          onChanged: (value) => _textStyleModel.text = value,
-                          maxLines: null,
-                          keyboardType: TextInputType.multiline,
-                          style: _textStyleModel.textStyle,
-                          textAlign: _textStyleModel.textAlign!,
-                          autofocus: true,
-                          cursorColor: Colors.white,
-                          decoration: null,
-                        ),
-                      ),
-                    ),
+              child: Container(
+                child: Center(
+                  child: TextField(
+                    controller: TextEditingController()
+                      ..text = _textStyleModel.text,
+                    onChanged: (value) => _textStyleModel.text = value,
+                    maxLines: null,
+                    keyboardType: TextInputType.multiline,
+                    style: _textStyleModel.textStyle,
+                    textAlign: _textStyleModel.textAlign!,
+                    autofocus: true,
+                    cursorColor: Colors.white,
+                    decoration: null,
                   ),
-                ],
+                ),
               ),
             ),
             Container(
