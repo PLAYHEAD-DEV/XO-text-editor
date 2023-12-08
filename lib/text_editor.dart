@@ -129,11 +129,12 @@ class _TextEditorState extends State<TextEditor> {
       textStyleModel: _textStyleModel,
       fontOptionModel: _fontOptionModel,
       child: Container(
-        padding: const EdgeInsets.only(right: 10, left: 10),
         color: widget.backgroundColor,
         child: Column(
           children: [
-            SizedBox(
+            Container(
+              padding: const EdgeInsets.only(right: 10, left: 10),
+              color: widget.decoration?.appBarBackground,
               height: 56,
               child: Row(
                 children: [
@@ -192,7 +193,8 @@ class _TextEditorState extends State<TextEditor> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 5),
+              height: 48,
+              color: widget.decoration?.fontOptionBackground,
               child: _fontOptionModel.status == FontOptionStatus.fontFamily
                   ? FontFamily(_fontOptionModel.fonts)
                   : ColorPalette(_fontOptionModel.colors!),
@@ -239,6 +241,8 @@ class TextBackgroundDecoration {
 class EditorDecoration {
   /// Done button widget
   final Widget? doneButton;
+  final Color? appBarBackground;
+  final Color? fontOptionBackground;
   final AlignmentDecoration? alignment;
 
   /// Text background widget
@@ -256,5 +260,7 @@ class EditorDecoration {
     this.fontFamily,
     this.colorPalette,
     this.textBackground,
+    this.appBarBackground,
+    this.fontOptionBackground,
   });
 }

@@ -15,13 +15,13 @@ class _ColorPaletteState extends State<ColorPalette> {
   Widget build(BuildContext context) {
     final textStyleModel = TextEditorData.of(context).textStyleModel;
     return Container(
-      child: SingleChildScrollView(
+      child: ListView(
+        shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            ...widget.colors.map((color) => _ColorPicker(color)).toList(),
-          ],
-        ),
+        padding: const EdgeInsets.only(left: 24, top: 12, bottom: 12),
+        children: [
+          ...widget.colors.map((color) => _ColorPicker(color)).toList(),
+        ],
       ),
     );
   }
@@ -41,7 +41,7 @@ class _ColorPicker extends StatelessWidget {
       child: Container(
         width: 24,
         height: 24,
-        margin: const EdgeInsets.only(right: 24, bottom: 12),
+        margin: const EdgeInsets.only(right: 24),
         decoration: BoxDecoration(
           color: color,
           border: Border.all(color: Colors.white, width: 1.5),

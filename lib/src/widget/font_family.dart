@@ -15,9 +15,12 @@ class _FontFamilyState extends State<FontFamily> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
+      height: 48,
+      child: Center(
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.only(left: 24, top: 10, bottom: 10),
           children: widget.fonts
               .map((fontModel) =>
                   _FontFamilyPicker(fontModel.font, fontModel.isSelected))
@@ -43,7 +46,7 @@ class _FontFamilyPicker extends StatelessWidget {
       child: Container(
         width: 42,
         height: 28,
-        margin: const EdgeInsets.only(right: 16, bottom: 5),
+        margin: const EdgeInsets.only(right: 24),
         decoration: BoxDecoration(
           border: isSelected
               ? Border.all(
@@ -52,7 +55,7 @@ class _FontFamilyPicker extends StatelessWidget {
                 )
               : null,
           borderRadius: BorderRadius.circular(100),
-          color: const Color(0x332e2e2e),
+          color: const Color(0xffffffff).withOpacity(0.1),
         ),
         child: Center(
           child: Text(
